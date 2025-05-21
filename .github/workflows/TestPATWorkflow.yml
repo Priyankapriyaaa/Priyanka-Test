@@ -1,21 +1,21 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Example Workflow 
-on:
+name: Example Workflow
+ 
+on: 
 push:
-branches:
--main
-
+  branches:
+  - main
+ 
+ 
 jobs:
-example-job:
-runs-on: ubuntu-latest
-
-
-steps:
--name: Checkout repository
-users:actions/checkout@v2
-
--name:Use GitHub API with PAT
-env:
-run:
-curl -H "Authorization: token $GITHUB_TOKEN" https://api:github.com/user
+example-job: 
+  runs-on: ubuntu-latest
+ 
+  steps:
+  - name: Checkout repository
+    uses: actions/checkout@v2
+ 
+  - name: Use GitHub API with PAT
+    env:
+       GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+    run: |
+     curl -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user
