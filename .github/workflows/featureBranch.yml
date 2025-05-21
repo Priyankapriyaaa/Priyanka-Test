@@ -14,13 +14,13 @@ jobs:
           git config --global user.email "mupparam.priyanka@gmail.com"
           git config --global user.name "Priyanka Mupparum"
 
-    echo "New changes" >> changes.txt
+          echo "New changes" >> changes.txt
           git add changes.txt
           git commit -m "Add changes"
 
-      -name : Push changes
-  env:
-  GITHUB_TOKEN: ${{ secrets.GH_PAT}}
-  run:
-  git push origin feature-branch
+    - name : Push changes
+      env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT}}
+      run: |
+        git push origin feature-branch
   
