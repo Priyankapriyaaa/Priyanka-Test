@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch
+
+jobs:
+  push-job:
+    runs-on: ubuntu-latesh
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Make changes
+      run: |
+          git config --global user.email "mupparam.priyanka@gmail.com"
+          git config --global user.name "Priyanka Mupparum"
+
+    echo "New changes" >> changes.txt
+          git add changes.txt
+          git commit -m "Add changes"
+
+      -name : Push changes
+  env:
+  GITHUB_TOKEN: ${{ secrets.GH_PAT}}
+  run:
+  git push origin feature-branch
+  
