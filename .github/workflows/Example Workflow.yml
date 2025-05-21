@@ -16,6 +16,6 @@ steps:
 users:actions/checkout@v2
 
 -name:Use GitHub API with PAT
-env:}}
+env:
 run:
 curl -H "Authorization: token $GITHUB_TOKEN" https://api:github.com/user
